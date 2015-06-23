@@ -57,6 +57,10 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="assets\images\atlas.json" />
+    <Content Include="assets\images\slot-machine.tps" />
+    <Content Include="assets\images\Thumbs.db" />
+    <Content Include="assets\images\UI Element Positions.xlsx" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -65,10 +69,36 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="assets\images\atlas.png" />
+    <Content Include="assets\images\bananaSymbol.png" />
+    <Content Include="assets\images\barSymbol.png" />
+    <Content Include="assets\images\bellSymbol.png" />
+    <Content Include="assets\images\betMaxButton.png" />
+    <Content Include="assets\images\betOneButton.png" />
+    <Content Include="assets\images\betTenButton.png" />
+    <Content Include="assets\images\blankSymbol.png" />
+    <Content Include="assets\images\button-template.png" />
+    <Content Include="assets\images\cherrySymbol.png" />
+    <Content Include="assets\images\grapesSymbol.png" />
+    <Content Include="assets\images\orangeSymbol.png" />
+    <Content Include="assets\images\resetButton.png" />
+    <Content Include="assets\images\sevenSymbol.png" />
+    <Content Include="assets\images\slotMachine.png" />
+    <Content Include="assets\images\spinButton.png" />
+    <Content Include="index.html" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="assets\audio\" />
+    <Folder Include="assets\fonts\" />
+    <Folder Include="config\" />
+    <Folder Include="css\" />
+    <Folder Include="objects\" />
+    <Folder Include="scripts\lib\" />
+    <Folder Include="scripts\typings\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
