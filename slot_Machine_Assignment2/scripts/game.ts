@@ -92,8 +92,8 @@ var betMaxButton: objects.Button;
 var powerbutton: createjs.Bitmap;
 
 //Label Variable
-var jackPotLabel: objects.Label;		
-var creditsLabel: objects.Label;		
+var jackPotLabel: objects.Label;
+var creditsLabel: objects.Label;
 var betLabel: objects.Label;
 var resultLabel: objects.Label;
 
@@ -127,7 +127,7 @@ function preload() {
     assets = new createjs.LoadQueue();
     assets.installPlugin(createjs.Sound);
     // event listener triggers when assets are completely loaded
-    assets.on("complete", init, this); 
+    assets.on("complete", init, this);
     assets.loadManifest(manifest);
 
     // Load Texture Atlas
@@ -184,13 +184,13 @@ function showPlayerStats() {
     console.log("Win Ratio: " + (winRatio * 100).toFixed(2) + "%");
 
     stage.removeChild(jackPotLabel);
-    stage.removeChild(creditsLabel );
-   // Jackpot Label values added
+    stage.removeChild(creditsLabel);
+    // Jackpot Label values added
     jackPotLabel = new objects.Label("" + jackpot, 161, 100, true);     //145+16, 96+4
     stage.addChild(jackPotLabel);
 
-   // Credit Label values added
-    creditsLabel = new objects.Label("" + playerMoney, 57,307, true);
+    // Credit Label values added
+    creditsLabel = new objects.Label("" + playerMoney, 57, 307, true);
     stage.addChild(creditsLabel);
 }
 
@@ -222,7 +222,7 @@ function resetAll() {
 
 /* Jackpot Function compare two random values */
 function checkJackPot() {
-    
+
     var jackPotTry = Math.floor(Math.random() * 51 + 1);
     var jackPotWin = Math.floor(Math.random() * 51 + 1);
     if (jackPotTry == jackPotWin) {
@@ -244,7 +244,7 @@ function showWinMessage() {
     resetFruitTally();
     checkJackPot();
 
-   
+
 }
 
 /* Utility function to show a loss message and Show player money and result */
@@ -376,7 +376,7 @@ function determineWinnings() {
 
 }
 
- //Adding Images to Reel
+//Adding Images to Reel
 function addimages() {
 
     //Adding images to reel1
@@ -388,7 +388,7 @@ function addimages() {
     reel1.y = 205;
     stage.addChild(reel1);
 
-     //Adding images to reel2
+    //Adding images to reel2
     stage.removeChild(reel2);
     reel2 = new createjs.Bitmap(assets.getResult(spinResult[1] + "Symbol"));
     reel2.regX = reel2.getBounds().width * 0.5;
@@ -397,12 +397,12 @@ function addimages() {
     reel2.y = 205;
     stage.addChild(reel2);
 
-     //Adding images to reel3
+    //Adding images to reel3
     stage.removeChild(reel3);
     reel3 = new createjs.Bitmap(assets.getResult(spinResult[2] + "Symbol"));
     reel3.regX = reel3.getBounds().width * 0.5;
     reel3.regY = reel3.getBounds().height * 0.5;
-    reel3.x = 236; 
+    reel3.x = 236;
     reel3.y = 205;
     stage.addChild(reel3);
 
@@ -436,13 +436,13 @@ function lab_img_reset() {
 // Callback function that allows me to respond to button click events
 function spinButtonClicked(event: createjs.MouseEvent) {
     createjs.Sound.play("clicked");
-   
+
     if (playerMoney == 0) {
         if (confirm("You ran out of Money! \n Do you want to play again?")) {
             resetAll();
             showPlayerStats();
             lab_img_reset();
-            
+
         }
     }
     else if (playerBet > playerMoney) {
@@ -458,7 +458,7 @@ function spinButtonClicked(event: createjs.MouseEvent) {
     else if (playerBet <= playerMoney) {
         spinResult = Reels();
         fruits = spinResult[0] + " - " + spinResult[1] + " - " + spinResult[2];
-        console.log(fruits); 
+        console.log(fruits);
 
         addimages();
         determineWinnings();
@@ -510,12 +510,12 @@ function betMaxButtonClicked(event: createjs.MouseEvent) {
 // Power click event
 function powerButtonClicked(event: createjs.MouseEvent) {
     createjs.Sound.play("clicked");
-    
+
     resetFruitTally();
     resetAll();
     lab_img_reset();
     if (power == true) {
-       
+
         powerbutton.alpha = 0.5;
         spinButton.mouseEnabled = false;
         resetButton.mouseEnabled = false;
@@ -531,9 +531,9 @@ function powerButtonClicked(event: createjs.MouseEvent) {
         betOneButton.mouseEnabled = true;
         betMaxButton.mouseEnabled = true;
         betTenButton.mouseEnabled = true;
-        power =true;
+        power = true;
     }
-    
+
 }
 
 // Our Main Game Function
@@ -548,11 +548,11 @@ function main() {
     powerbutton.regX = powerbutton.getBounds().width * 0.5;
     powerbutton.regY = powerbutton.getBounds().height * 0.5;
     powerbutton.x = 70;
-    powerbutton.y =85;
+    powerbutton.y = 85;
     powerbutton.on("click", powerButtonClicked, this);
     stage.addChild(powerbutton);
 
-//Adding intial values to Background
+    //Adding intial values to Background
     stage.removeChild(jackPotLabel);
     stage.removeChild(creditsLabel);
     stage.removeChild(betLabel);
@@ -563,10 +563,10 @@ function main() {
 
     creditsLabel = new objects.Label("" + playerMoney, 57, 307, true);
     stage.addChild(creditsLabel);
-    
+
     betLabel = new objects.Label("" + playerBet, 161, 307, true);
     stage.addChild(betLabel);
-   
+
     resultLabel = new objects.Label("" + winnings, 263, 307, true);
     stage.addChild(resultLabel);
 
@@ -576,7 +576,7 @@ function main() {
     spinButton.on("click", spinButtonClicked, this);
     
     
-       // add resetButton sprite
+    // add resetButton sprite
     resetButton = new objects.Button("resetButton", 16, 334, false);
     stage.addChild(resetButton);
     resetButton.on("click", resetButtonClicked, this);
